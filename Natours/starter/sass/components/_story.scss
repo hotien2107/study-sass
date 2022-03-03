@@ -1,0 +1,78 @@
+.story {
+  width: 80%;
+  background-color: rgba($color-white, 0.8);
+  margin: 0 auto;
+  box-shadow: 0 3rem 6rem rgba($color-pure-black, 0.1);
+  border-radius: 5px;
+  overflow: hidden;
+  padding: 6rem;
+  padding-left: 9rem;
+  transform: skew(-10deg);
+  transition: all 0.3s;
+
+  @include respond(phone) {
+    width: 90%;
+    transform: skew(0);
+    padding: 4rem;
+  }
+
+  & > * {
+    transform: skew(10deg);
+
+    @include respond(phone) {
+      transform: skew(0);
+    }
+  }
+
+  &:hover &__image {
+    transform: scale(1.4);
+    filter: blur(0.2rem) brightness(80%);
+  }
+
+  &:hover &__caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+
+  &__shape {
+    width: 15rem;
+    height: 15rem;
+    float: left;
+    clip-path: circle(50% at 50% 50%);
+    shape-outside: circle(50% at 50% 50%);
+    margin-right: 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  &__caption {
+    font-size: 2.2rem;
+    font-weight: 400;
+    text-align: center;
+    z-index: 999;
+    position: absolute;
+    top: 150%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: $color-white;
+    transition: all 0.3s;
+    opacity: 0;
+    backface-visibility: hidden;
+  }
+
+  &__image {
+    object-fit: cover;
+    transform: scale(1);
+    transition: all 0.3s;
+    backface-visibility: hidden;
+  }
+
+  &__text {
+    p {
+      font-size: 1.6rem;
+      font-weight: 400;
+    }
+  }
+}

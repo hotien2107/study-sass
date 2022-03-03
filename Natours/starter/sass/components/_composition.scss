@@ -1,0 +1,39 @@
+.composition {
+  position: relative;
+  height: 40rem;
+  z-index: 500;
+
+  &__photo {
+    width: 50%;
+    box-shadow: 0.2rem 1rem 5rem rgba($color-pure-black, 0.3);
+    border-radius: 0.2rem;
+    position: absolute;
+    transition: all 0.2s;
+    outline-offset: 1rem;
+
+    &:hover {
+      z-index: 999;
+      transform: scale(1.5);
+      box-shadow: 0.5rem 1.5rem 6rem rgba($color-pure-black, 0.4);
+      outline: 1rem solid $color-primary;
+    }
+
+    &--p1 {
+      top: 0;
+      left: 0;
+    }
+
+    &--p2 {
+      top: 7rem;
+      left: 20rem;
+    }
+
+    &--p3 {
+      top: 15rem;
+      left: 10rem;
+    }
+  }
+  &:hover &__photo:not(:hover) {
+    transform: scale(0.9);
+  }
+}
